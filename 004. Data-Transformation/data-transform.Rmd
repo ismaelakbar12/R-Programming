@@ -1,0 +1,97 @@
+---
+title: "Transformasi Data dengan dplyr"
+author: "Penulis : Ismail Akbar | Prof. Dr. Suhartono M.Kom | Magister Informatika | UIN Maulana Malik Ibrahim Malang"
+date: "24 Februari 2021"
+output: html_document
+---
+
+---
+
+### A. Pengantar
+**Transformasi** Data adalah satu langkah dalam menangani data yang tidak sesuai dengan asumsi model, dan juga digunakan untuk memaksa variabel yang berbeda agar memiliki distribusi yang serupa.
+
+**dplyr** adalah satu paket yang dibangun dengan tujuan tunggal untuk menyederhanakan proses manipulasi, pengurutan, peringkasan, dan penggabungan frame data. Fungsi dasar dari transformasi data yang ditawarkan paket **dplyr** ini adalah :
+
+*   **select()** : Memilih variabel
+*   **filter()** : Menyediakan kemampuan pemfilteran dasar
+*   **group_by()** : Mengelompokkan data berdasarkan tingkat kategori
+*   **summarise()** : Meringkas data berdasarkan fungsi pilihan
+*   **arrange()** : Data pesanan
+*   **join()** : Bergabung dengan dataframe terpisah
+*   **mutate()** : Membuat variabel baru
+
+**Catatan**
+untuk menerapkan beberapa fungsi **dplyr**, kami disini menggunakan data kualitas udara.
+
+
+## 1. Filter
+Memfilter data adalah tugas umum untuk mengidentifikasi / memilih pengamatan di mana variabel tertentu cocok dengan nilai / kondisi tertentu.
+
+```{r}
+library(dplyr)
+```
+
+
+```{r}
+# memilih 5 baris dari data kualitas udara
+airquality[1:5,] 
+```
+
+Di sini kita dapat menggunakan fungsi filter untuk keuntungan kita dan memilih hanya beberapa variabel dengan membuat kondisi yang memfilter dataset.
+
+```{r}
+# membuat variabel a untuk menyimpan data
+a = filter(airquality,Month == 7, Day == 2)
+
+# menampilkan data
+a
+```
+
+## 2. Arrange
+
+Fungsi ini bekerja dengan cara yang mirip untuk memfilter tetapi mengubah urutannya alih-alih memilih baris.
+
+```{r}
+arrange(airquality, desc(Day))
+```
+kita dapat menggunakan lebih dari satu nama variabel untuk mengurutkan dataframe tetapi urutan preferensi dalam penyortiran akan selalu dengan variabel pertama yang disebutkan.
+
+## 3. Select
+Fungsi ini memungkinkan untuk memilih beberapa variabel dengan namanya atau dengan beberapa variasi dan mengabaikan yang tidak berguna. Funsgi Select hanya memberi kesempatan untuk mempertimbangkan variabel yang diperlukan dan terbukti efektif dalam konteks tertentu.
+
+```{r}
+select(airquality,Ozone,Month)
+```
+
+```{r}
+select(airquality,Ozone:Month)
+```
+
+## 4. Mutate
+Fungsi ini biasanya digunakan untuk membuat satu set variabel baru dan di fitur baru lainnya untuk ditambahkan ke dataframe. Fungsi ini memiliki kegunaan penting juga karena membantu membuat variabel baru dari variabel yang ada sekaligus dan bekerja lebih baik. Dengan kata lain, kita dapat membuat beberapa variabel baru sekaligus menggunakan fungsi mutate dan menambahkannya ke dataframe yang ada.
+
+```{r}
+mutate(airquality,Ozonepercent = Ozone/100 )
+```
+Jika kita bermaksud untuk menyimpan hanya variabel yang baru dibuat maka kita dapat menggunakan **transmute** karena itu menetapkan tujuan membuat kerangka data hanya variabel yang baru dibuat dan kita tidak perlu membuat variabel satu per satu karena itu membutuhkan waktu dan mengurangi produktivitas kita dan tujuan menggunakan bahasa R secara efisien.
+
+```{r}
+transmute(airquality,Ozonepercent = Ozone/100 )
+```
+
+## 5. Summarise
+Fungsi ini memungkinkan untuk melakukan sebagian besar statistik ringkasan awal saat melakukan analisis data eksplorasi. Dalam kata lain, mengelompokkan banyak nilai menjadi satu ringkasan.
+
+```{r}
+summarise(airquality,ozonemean = mean(Wind))
+```
+
+
+### Referensi
+
+1.    (https://rcompanion.org/handbook/I_12.html)
+2.    (https://thinkstudioo.blogspot.com/2017/12/membuat-matriks-di-r-lengkap.html)
+3.    (https://afit-r.github.io/dplyr)
+4.    (https://carpentries-incubator.github.io/open-science-with-r/04-dplyr/index.html#dplyr-basics)
+5.    (http://rstudio-pubs-static.s3.amazonaws.com/460682_ef47595d78d8431aa3b0472eee66c32f.html)
+

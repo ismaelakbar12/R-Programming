@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h3 style="text-align: center;">Analis Data Penerbangan di New York</h3>
+    <h4 style="text-align: center;">dikembangkan oleh :</h4>
+    <table style="border-collapse: collapse; width: 100%;" border="0">
+    <tbody>
+    <tr>
+    <td style="width: 50%;">
+        <p><img class="img-circle img-thumbnail" style="display: block; margin-left: auto; margin-right: auto;" src="https://media-exp1.licdn.com/dms/image/C5103AQG71gp380nJ9A/profile-displayphoto-shrink_200_200/0/1560483748531?e=1619049600&amp;v=beta&amp;t=0pxafFGccZYCfkbrAgbohXwSoglsTbE9LEB0hdIs8c4" alt="" /></p>
+        <p style="text-align: center;"><b>Ismail Akbar</b><br>Mahasiswa Magister Teknik Informatika<br>UIN Maulana Malik Ibrahim Malang</p>
+        <br>
+        <table style="border-collapse: collapse; width: 100%;" align="center" border="0">
+        <tbody>
+        <tr>
+        <td style="width: 25%;" class="text-center"><a href="https://ismaelakbar.site/"><i class="fa fa-globe fa-2x"></i> <br> Website</a></td>
+        <td style="width: 25%;" class="text-center"><a href="mailto:ismailakbar@metamorfora.id"><i class="fa fa-envelope fa-2x"></i> <br> Email</a></td>
+        <td style="width: 25%;" class="text-center"><a href="https://github.com/ismaelakbar12/"><i class="fa fa-github fa-2x"></i> <br> Github</a></td>
+        <td style="width: 25%;" class="text-center"><a href="https://t.me/ismaelakbar12"><i class="fa fa-paper-plane fa-2x"></i> <br> Telegram</a></td>
+        </tr>
+        </tbody>
+        </table>
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    <hr />
+    <h3 style="text-align: center;">Kontak Institusi</h3>
+    <br>
+    <p>Magister Teknik Informatika - Fakultas Sains dan Teknologi, Gedung BJ Habibie<br>
+    Universitas Islam Negeri Maulana Malik Ibrahim Malang<br>
+    Jl. Gajayana 50 Malang, Jawa Timur, Indonesia</p>
+    <br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.4562590160904!2d112.60525421456569!3d-7.951711794272541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78815e45bbc56d%3A0x5031ab2d7d36dba6!2sUniversitas%20Islam%20Negeri%20Maulana%20Malik%20Ibrahim%20Malang!5e0!3m2!1sid!2sid!4v1606801542416!5m2!1sid!2sid" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

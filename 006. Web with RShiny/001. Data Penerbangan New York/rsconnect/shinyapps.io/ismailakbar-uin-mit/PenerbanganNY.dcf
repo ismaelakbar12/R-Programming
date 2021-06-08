@@ -1,0 +1,12 @@
+name: PenerbanganNY
+title: PenerbanganNY
+username:
+account: ismailakbar-uin-mit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3762758
+bundleId: 4690666
+url: https://ismailakbar-uin-mit.shinyapps.io/PenerbanganNY/
+when: 1623130186.35958
+asMultiple: FALSE
+asStatic: FALSE

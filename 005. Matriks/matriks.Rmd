@@ -1,0 +1,173 @@
+---
+title: "Pengenalan Matriks pada Bahasa R"
+author: "Penulis : Ismail Akbar | Prof. Dr. Suhartono M.Kom | Magister Informatika | UIN Maulana Malik Ibrahim Malang"
+date: "23 Februari 2021"
+output: html_document
+---
+
+---
+
+
+Bahasa R adalah paket pemrograman statistik yang kaya akan operator vektor dan matriks. Matriks digunakan untuk menggabungkan vektor dengan tipe yang sama, yang bisa berupa numerik, karakter, atau logis. Matriks digunakan untuk menyimpan sebuah tabel data dalam bahasa R. Pada umumnya baris-baris matriks sebuah individu atau pengamatan dan kolom adalah variabel.
+
+### A. Membuat Matriks
+Untuk membuat matriks menggunakan fungsi **cbind()** atau **rbind()**. Berikut contoh sintaks untuk membuat matriks.
+
+```{r}
+# membuat vektor dengan bentuk numerik
+col1 <- c(5, 6, 7, 8, 9)
+col2 <- c(2, 4, 5, 9, 8)
+col3 <- c(7, 3, 4, 8, 7)
+
+# menggabungkan vektor berdasarkan kolom
+my_data <- cbind(col1, col2, col3)
+my_data
+```
+```{r}
+# menambahkan nama baris
+rownames(my_data) <- c("row1", "row2", 
+                       "row3", "row4", 
+                       "row5")
+my_data
+```
+**Perlu dingat**
+
+*   **cbind()** : Menggabungkan objek berdasarkan kolom
+*   **rbind()** : Menggabungkan objek berdasarkan baris
+*   **rownames()** : Mengambil atau menetapkan nama-nama baris dari objek seperti matriks
+*   **colnames()** : Mengambil atau menetapkan nama-nama kolom dari objek seperti matriks
+
+
+Pada matriks juga bisa dilakukan transform (merotasi matriks sehingga kolom menjadi baris dan sebaliknya) dengan menggunakan fungsi **t()**.
+
+```{r}
+t(my_data)
+```
+Selain membuat matriks dari objek vektor, bisa juga menggunakan fungsi ***matrix()**. Dengan penulisan berikut.
+
+```{r}
+matrix(data = NA, nrow = 3, ncol = 5, byrow = FALSE,
+       dimnames = NULL)
+```
+**Perlu dingat**
+
+*   **data** : Vektor data opsional.
+*   **nrow & ncol** : Jumlah baris dan kolom yang diinginkan, masing-masing.
+*   **byrow** : nilai logis. Jika FALSE (default) matriks diisi oleh kolom, jika tidak, matriks diisi oleh baris.
+*   **dimnames** : Daftar dua vektor yang memberikan nama baris dan kolom masing-masing.
+
+Untuk mengetahui dimensi dari sebuah matriks, dapat menggunakan fungsi **ncol()*** untuk mengetahui jumlah kolom pada matriks, sedangkan **nrow** untuk mengetahui jumlah baris pada matriks.
+
+```{r}
+ncol(my_data)
+```
+
+```{r}
+nrow(my_data)
+```
+
+Untuk mengetahui ringkasan dari dimensi matriks, dapat menggunakan fungsi **dim()** yang digunakan untuk mengetahui jumlah baris dan jumlah kolom sebuah matriks.
+```{r}
+dim(my_data)
+```
+
+### B. Subset Pada Matriks
+
+Sama halnya dengan vektor, subset juga dapat dilakukan pada matriks. Namun bedanya subset dengan vektor yaitu dilakukan berdasarkan baris dan kolom pada sebuah matriks.
+
+**1.    Memilih baris / kolom berdasarkan pengindeksan positif**
+
+Cara seleksi tahapan ini sama dengan vektor, bedanya harus menentukan baris dan kolom dari data yang akan dipilih. Baris dan kolom diseleksi menggunakan fungsi **data[row, col]**.
+```{r}
+#memilih baris ke-3
+my_data[3,]
+```
+```{r}
+#memilih baris 1 sampai 3
+my_data[1:3,]
+```
+```{r}
+#memilih baris 1 dan 4
+my_data[c(1,4),]
+```
+```{r}
+#memilih baris ke-2 dan kolom ke-1
+my_data[2,1]
+```
+
+**2.    Memilih berdasarkan baris / kolom**
+
+```{r}
+#memilih baris 2 dan kolom 3
+my_data["row2","col3"]
+```
+```{r}
+#memilih baris 1 sampai 3 dan kolom 2
+baris <- c("row1", "row2", "row3")
+my_data[baris, "col2"]
+```
+**3.    Memilih pengecualian baris/kolom dengan indeks negatif**
+
+```{r}
+# Kecualikan baris 1 dan 3 serta kolom 2
+my_data[-c(1,3), -2]
+```
+**4.    Memilih dengan logik**
+```{r}
+#memilih baris dimana col2 >= 4
+col2 <- my_data[, "col2"]
+my_data[col2 >= 4, ]
+```
+
+### C. Perhitungan pada Matriks
+Pada matriks juga bisa dilakukan penerapan operasi matematika. Operasi matematika pada matriks lebih kompleks dibandingkan dengan vektor. Dimana kita dapa melakukan operasi matematika pada tiap kolom / baris.
+
+```{r}
+# Perkalian masing-masing elemen
+my_data*3
+```
+```{r}
+# menampilkan nilai log basis 2 pada masing-masing elemen
+log2(my_data)
+```
+```{r}
+# Total tiap kolom matriks
+colSums(my_data)
+```
+```{r}
+# Total tiap baris matriks
+rowSums(my_data)
+```
+
+```{r}
+# Menampilkan Rata-rata tiap baris
+rowMeans(my_data)
+```
+```{r}
+# Menampilkan Rata-rata tiap kolom
+colMeans(my_data)
+```
+
+Pada matriks juga bisa dilakukan perhitungan statistika menggunakan fungsi **apply()**.
+rumus dasar : **apply(x, MARGIN, FUN)**
+
+**Perlu dingat**
+
+*   **x** : data matriks.
+*   **MARGIN** : Nilai yang dapat digunakan adalah 1 (untuk operasi pada baris) dan 2 (untuk operasi pada kolom).
+*   **FUN** : fungsi yang diterapkan pada baris atau kolom.
+
+```{r}
+# Rata-rata pada tiap baris matriks
+apply(my_data, 1, mean)
+```
+```{r}
+# Median pada tiap kolom matriks
+apply(my_data, 2, median)
+```
+### Referensi
+
+1.    (http://www.philender.com/courses/multivariate/notes/matr.html)
+2.    (https://thinkstudioo.blogspot.com/2017/12/membuat-matriks-di-r-lengkap.html)
+3.    (https://rstudio-pubs-static.s3.amazonaws.com/398904_5b7eb0646b8d4bcda344351a49501a5d.html#operasi-matriks)
+4.    Tirta, I Made. 2015. **Buku Panduan Program Statistika R**. UNEJ

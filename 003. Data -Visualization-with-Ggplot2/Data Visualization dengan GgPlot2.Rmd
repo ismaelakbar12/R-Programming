@@ -1,0 +1,72 @@
+---
+title: "Data visualization dg ggplot2"
+author: "Penulis : Ismail Akbar | Prof. Dr. Suhartono M.Kom | Magister Informatika | UIN Maulana Malik Ibrahim Malang"
+date: "17 Februari 2021"
+output: html_document
+---
+
+### Data Visualisasi
+Data dan Informasi merupakan kebutuhan mendasar bagi kalangan manusia khususnya orang yang menekuni dalam bidang data sains. Cara yang efektif untuk menggambarkan antara konsep dan ide adalah melalui visualisasi.
+
+Pada artikel ini akan dijelaskan memvisualisasikan data menggunakan ggplot. 
+Untuk mengakses dataset yang akan kita gunakan, kita akan memuat library tidyverse dengan menjalankan kode ini:
+
+```{r}
+library(tidyverse)
+```
+
+Sekarang kita akses sumber data yang akan kita visualisasikan. Pada artikel ini menggunakan Data Standar Pemberhentian Amerika Serikat.
+
+```{r}
+stops_county <- read.csv('dataset/MS_stops_by_county.csv')
+```
+
+Tampilkan data dalam bentuk frame dan Console.
+
+```{r}
+head(stops_county)
+str(stops_county)
+```
+Untuk langkah awal dalam visualisasi data dengan GGplot, atur dulu canvas atau area kerja untuk mengampung grafik datanya.
+
+```{r}
+ggplot(data = stops_county, aes(x = pct_black_stopped, y = pct_white_stopped))
+```
+
+```{r}
+ggplot(data = stops_county, aes(x = pct_black_stopped, y = pct_white_stopped)) +
+  geom_point()
+```
+
+Kemudian tetapkan plot ke sebuah variabel dan Gambar Plotnya.
+```{r}
+# Tetapkan plot ke variabel
+MS_plot <- ggplot(data = stops_county, aes(x = pct_black_stopped, y = pct_white_stopped))
+
+# Gambar plotnya
+MS_plot + geom_point()
+```
+Pada visulisasi data terdapat cara untuk menambahkan sebuah layer. 
+
+```{r}
+# sintaks yang benar untuk menambahkan layer
+MS_plot + geom_point()
+
+# tidak akan menambah lapisan baru dan akan mengembalikan pesan kesalahan
+MS_plot + geom_point()
+```
+
+Dan kita juga bisa menampilkan visualiasi data dengan bentuk grafik batang.
+```{r}
+ggplot(stops_county, aes(x = county_name, y = wb_delta)) + 
+  geom_col()
+```
+
+## Referensi :
+[1] E. Pierson, C. Simoiu, J. Overgoor, S. Corbett-Davies, D. Jenson, A. Shoemaker, V. Ramachandran, P. Barghouty, C. Phillips, R. Shroff, and S. Goel. “A large-scale analysis of racial disparities in police stops across the United States”. Nature Human Behaviour, Vol. 4, 2020.
+[2]I. J. Asmara, E. Achelia, W. Maulana, R. Wijayanti and Y. Rianto, "Teknik Visualisasi
+Grafik Berbasis Web di Atas Platform Open
+Source," Seminar Nasional Aplikasi Teknologi Informasi 2009 (SNATI 2009), pp. 44-
+47, 2009.
+[3] Hadley Wickham and Garrett Grolemund, R For Data Science, https://r4ds.had.co.nz/data-visualisation.html
+

@@ -1,0 +1,12 @@
+name: Web-Scraping
+title: Web-Scraping
+username:
+account: ismailakbar-uin-mit
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4036682
+bundleId: 4690339
+url: https://ismailakbar-uin-mit.shinyapps.io/Web-Scraping/
+when: 1623119750.47372
+asMultiple: FALSE
+asStatic: FALSE
