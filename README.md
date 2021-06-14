@@ -12,7 +12,7 @@ statistika dan grafik yang awalnya dibuat oleh **Ross Ihaka** dan
 dilanjutkan oleh **R Development Core Team**.
 
 Berbeda dengan bahasa pemrograman lainnya, bahasa R berupa *interpreter*
-yang dituliskan baris per baris seperti di )Command Line Interface).
+yang dituliskan baris per baris seperti di CLI (Command Line Interface).
 Bahasa R tidak sesulit bahasa pemrograman lainnya, yang dimana bahasa R
 merupakan turunan dari bahasa pemrograman S, sedangkan bahasa S turunan
 dari bahasa pemrograman C. Maka bisa disimpulkan bahasa R akan terlihat
